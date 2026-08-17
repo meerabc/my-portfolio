@@ -35,7 +35,7 @@ function Contact() {
           gap: '28px',
           justifyContent: 'center'
         }}>
-          <a href="https://linkedin.com/in/meerab-chaudhary" target="_blank" rel="noreferrer" style={secondaryLink}>
+          <a href="https://www.linkedin.com/in/meerab-chaudhary-01028b2a6/" target="_blank" rel="noreferrer" style={secondaryLink}>
             LinkedIn
           </a>
           <a href="https://github.com/meerabc" target="_blank" rel="noreferrer" style={secondaryLink}>
