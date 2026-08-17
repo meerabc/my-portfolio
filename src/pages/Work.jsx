@@ -1,0 +1,219 @@
+import { Link } from 'react-router-dom'
+import reachShopHero from '../assets/images/reach-shop-hero.png'
+import reachShopBrowsing from '../assets/images/reach-shop-browsing.png'
+import reachShopDetail from '../assets/images/reach-shop-product-detail.png'
+import reachShopSignin from '../assets/images/reach-shop-signin-redirect.png'
+import restCountriesGrid from '../assets/images/rest-countries-home-grid.png'
+import restCountriesDetail from '../assets/images/rest-countries-detail.png'
+import wondersGrid from '../assets/images/wonders-card-grid.png'
+import resumeDesktop from '../assets/images/resume-clone-desktop-hero.png'
+import resumeMobile from '../assets/images/resume-clone-mobile-hero.png'
+import resumeGrid from '../assets/images/resume-clone-portfolio-grid.png'
+
+function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, liveUrl, repoUrl, imageLayout = 'default' }) {
+  return (
+    <section style={{
+      padding: '60px 40px',
+      maxWidth: '900px',
+      margin: '0 auto',
+      borderTop: '1px solid #e5e5e5'
+    }}>
+      <h2 style={{
+        fontFamily: 'Space Grotesk, sans-serif',
+        fontSize: '30px',
+        color: '#171717',
+        margin: '0 0 20px'
+      }}>
+        {title}
+      </h2>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>The problem</p>
+        <p style={caseText}>{problem}</p>
+      </div>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>What I did</p>
+        <p style={caseText}>{whatIDid}</p>
+      </div>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>What came of it</p>
+        <p style={caseText}>{outcome}</p>
+      </div>
+
+      <p style={{
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '15px',
+        fontStyle: 'italic',
+        color: '#171717',
+        opacity: 0.7,
+        margin: '0 0 28px'
+      }}>
+        Next time: {nextTime}
+      </p>
+
+      {imageLayout === 'stackedLeft' ? (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gridTemplateRows: 'auto auto',
+          gap: '16px',
+          marginBottom: '24px'
+        }}>
+          <img src={images[0]} alt={`${title} screenshot 1`} style={{
+            width: '100%', borderRadius: '6px', border: '1px solid #e5e5e5',
+            gridColumn: '1', gridRow: '1'
+          }} />
+          <img src={images[2]} alt={`${title} screenshot 3`} style={{
+            width: '100%', borderRadius: '6px', border: '1px solid #e5e5e5',
+            gridColumn: '1', gridRow: '2'
+          }} />
+          <img src={images[1]} alt={`${title} screenshot 2`} style={{
+            width: '100%', height: '100%', objectFit: 'cover', borderRadius: '6px', border: '1px solid #e5e5e5',
+            gridColumn: '2', gridRow: '1 / 3'
+          }} />
+        </div>
+      ) : (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '16px',
+          marginBottom: '24px'
+        }}>
+          {images.map((img, i) => (
+            <img key={i} src={img} alt={`${title} screenshot ${i + 1}`} style={{
+              width: '100%',
+              borderRadius: '6px',
+              border: '1px solid #e5e5e5'
+            }} />
+          ))}
+        </div>
+      )}
+
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <a href={liveUrl} target="_blank" rel="noreferrer" style={linkStyle}>Live demo &rarr;</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer" style={linkStyle}>GitHub repo &rarr;</a>
+      </div>
+    </section>
+  )
+}
+
+const caseLabel = {
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '13px',
+  fontWeight: 600,
+  textTransform: 'uppercase',
+  letterSpacing: '0.5px',
+  color: '#0F766E',
+  margin: '0 0 6px'
+}
+
+const caseText = {
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '16px',
+  lineHeight: 1.7,
+  color: '#171717',
+  margin: 0
+}
+
+const linkStyle = {
+  fontFamily: 'Inter, sans-serif',
+  fontWeight: 600,
+  fontSize: '15px',
+  color: '#0F766E',
+  textDecoration: 'none'
+}
+
+function Work() {
+  return (
+    <div>
+      <section style={{ padding: '80px 40px 20px', maxWidth: '900px', margin: '0 auto' }}>
+        <h1 style={{
+          fontFamily: 'Space Grotesk, sans-serif',
+          fontSize: '36px',
+          color: '#171717',
+          margin: 0
+        }}>
+          Work
+        </h1>
+      </section>
+
+      <ProjectCase
+        title="Reach Shop"
+        problem="I wanted practice building a full e-commerce style app with real state management, not just a UI shell. Reach Shop was a clone project covering the whole flow: browsing products, filtering, cart, and auth, not just one isolated feature."
+        whatIDid="I built the cart with Redux Toolkit, storing items in a cart.js slice, and used separate localStorage keys per user (carts_user_id vs carts_guest) so each account's cart stays isolated. You can add to cart as a guest, but the cart page itself is a protected route, so viewing it without logging in redirects you to sign in. Auth was handled with context and public/private routes. Styling and animations were done in plain CSS, and the app has light/dark mode, product search and filtering, and a login-gated cart view."
+        outcome="It worked. Cart items correctly persisted per user, and I came out of it actually understanding Redux, since this was my first time using it and I had to learn it through tutorials while building. It's live on Vercel with the code on GitHub."
+        nextTime="add guest-to-user cart merging on login, a user profile page, a payment page, and an add-to-cart animation."
+        images={[reachShopHero, reachShopBrowsing, reachShopDetail, reachShopSignin]}
+        liveUrl="https://react-shop-two-sage.vercel.app/"
+        repoUrl="https://github.com/meerabc/react-shop.git"
+      />
+
+      <ProjectCase
+        title="REST Countries Explorer"
+        problem="I built this during my internship to learn API integration and theme switching. The app needed search, region filtering, dark/light mode, and a details page for each country, but it also needed to actually hold together as you moved between pages, not just work in isolation."
+        whatIDid="I found two real problems early on. First, going from the home page to a country's detail page and back reset all my filters, so I built a country context to hold the currently filtered list across navigation. Second, I wanted to fetch full country data once and store it in a single array to avoid repeated calls, but the API's attribute limit on the list endpoint meant I couldn't get everything I needed for the details page that way. I decided to make a second API call per country, on click, instead of over-fetching everything upfront."
+        outcome="The filters correctly persisted after adding context. The trade-off was a load delay on the details page, since it fetched data live instead of pulling from memory. Given the project's requirements, that was the right call."
+        nextTime="cache country details once fetched, so revisiting the same country doesn't hit the API again."
+        images={[restCountriesGrid, restCountriesDetail]}
+        liveUrl="https://rest-countries-api-gray-phi.vercel.app/"
+        repoUrl="https://github.com/meerabc/Rest-Countries-API.git"
+      />
+
+      <ProjectCase
+        title="Wonders of the World"
+        problem="Early in my internship, my mentor asked me to practice dynamic data handling in React, specifically components and props, in whatever way I chose. I decided to build a card-based site listing world wonders."
+        whatIDid="I built a single reusable card component and stored each wonder's data (name, location, image, description, Google Maps link, Wikipedia link) in one data.js file as an array of objects with a consistent structure. I rendered the cards using .map(), so the card component just takes in whatever wonder data it's given and displays it, no per-wonder custom code."
+        outcome="I understood how props and .map() work together for data-driven UI, and how to structure a small project around one consistent data shape. I used a static file instead of an API since the data set was small and fixed."
+        nextTime="if this were a larger project with a lot more data, I'd pull from a real API instead."
+        images={[wondersGrid]}
+        liveUrl="https://data-drive-cards-react.vercel.app/"
+        repoUrl="https://github.com/meerabc/Data-drive-cards-react.git"
+      />
+
+      <ProjectCase
+        title="Resume Clone"
+        problem="This was one of my earliest internship projects, meant to build responsiveness and pixel-perfect design skills using plain HTML and CSS. The goal was to match an existing resume design as closely as possible, an exact clone, not just something similar."
+        whatIDid="I built the whole thing myself with HTML and CSS, no AI involved. The hardest part was getting the responsiveness and spacing pixel-perfect, which took a lot of trial and error to match the original design exactly."
+        outcome="It ended up looking like a genuine clone of the original design, and my mentor approved it."
+        nextTime="add a subtle animation for how the layout transitions when it responds to different screen sizes."
+        images={[resumeDesktop, resumeMobile, resumeGrid]}
+        liveUrl="https://resume-clone-liard.vercel.app/#portfolio"
+        repoUrl="https://github.com/meerabc/Resume---Clone.git"
+        imageLayout="stackedLeft"
+      />
+
+      <section style={{
+        padding: '60px 40px',
+        textAlign: 'center',
+        backgroundColor: '#0F766E',
+        marginTop: '40px'
+      }}>
+        <p style={{
+          fontFamily: 'Space Grotesk, sans-serif',
+          fontSize: '22px',
+          color: '#FAFAFA',
+          margin: '0 0 20px'
+        }}>
+          Like what you see?
+        </p>
+        <Link to="/contact" style={{
+          display: 'inline-block',
+          padding: '12px 28px',
+          backgroundColor: '#FAFAFA',
+          color: '#0F766E',
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 600,
+          fontSize: '15px',
+          textDecoration: 'none',
+          borderRadius: '4px'
+        }}>
+          Email me and let's talk
+        </Link>
+      </section>
+    </div>
+  )
+}
+
+export default Work
