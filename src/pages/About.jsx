@@ -39,7 +39,7 @@ function About() {
             color: '#171717',
             margin: 0
           }}>
-            React developer focused on getting UI exactly right, pixel by pixel, responsive by default. Trained on real work at SharkStack, first as an intern, then as a Junior Frontend Developer, building and shipping actual product features, not just practice projects. I care about matching a design exactly, not close enough, and about interfaces that hold up once someone actually clicks through them, not just look right in a screenshot.
+            React developer focused on getting UI exactly right, pixel by pixel, responsive by default. Trained on real work at SharkStack, first as an intern, then as a Junior Frontend Developer, contributing to real internal projects, including work not shown here due to confidentiality. The projects on this site were built to sharpen specific skills: state management, API integration, and pixel-accurate layout. I care about matching a design exactly, not close enough, and about interfaces that hold up once someone actually clicks through them, not just look right in a screenshot.
           </p>
         </div>
       </section>
@@ -68,6 +68,12 @@ function About() {
         <div style={{ marginBottom: '20px' }}>
           <p style={roleTitle}>Frontend Developer Intern, SharkStack</p>
           <p style={roleDate}>Jun 2025 to Sep 2025</p>
+        </div>
+
+        <div style={{ marginBottom: '24px' }}>
+          <p style={{ ...roleDate, fontStyle: 'italic', lineHeight: 1.6 }}>
+            Between the internship and the Junior Frontend Developer role, I took optional backend training sessions with SharkStack while continuing my coursework, before being offered the permanent position.
+          </p>
         </div>
 
         <div>

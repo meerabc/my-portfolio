@@ -1,14 +1,31 @@
 import { Link } from 'react-router-dom'
+
+// Reach Shop
 import reachShopHero from '../assets/images/reach-shop-hero.png'
 import reachShopBrowsing from '../assets/images/reach-shop-browsing.png'
 import reachShopDetail from '../assets/images/reach-shop-product-detail.png'
 import reachShopSignin from '../assets/images/reach-shop-signin-redirect.png'
+
+// REST Countries
 import restCountriesGrid from '../assets/images/rest-countries-home-grid.png'
 import restCountriesDetail from '../assets/images/rest-countries-detail.png'
+
+// Wonders of the World
 import wondersGrid from '../assets/images/wonders-card-grid.png'
+
+// Resume Clone (Comparison)
+import resumeOrigDesktop from '../assets/images/resume-clone-original-desktop-hero.png'
+import resumeOrigMobile from '../assets/images/resume-clone-original-mobile-hero.png'
+import resumeOrigGrid from '../assets/images/resume-clone-original-portfolio-grid.png'
 import resumeDesktop from '../assets/images/resume-clone-desktop-hero.png'
 import resumeMobile from '../assets/images/resume-clone-mobile-hero.png'
 import resumeGrid from '../assets/images/resume-clone-portfolio-grid.png'
+
+// SharkStack CRM (New 4 images)
+import crmNewProjectDesktop from '../assets/images/crm-new-project-desktop.png'
+import crmNewProjectMobile from '../assets/images/crm-new-project-mobile.png'
+import crmNewUserDesktop from '../assets/images/crm-new-user-desktop.png'
+import crmNewUserMobile from '../assets/images/crm-new-user-mobile.png'
 
 function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, liveUrl, repoUrl, imageLayout = 'default' }) {
   return (
@@ -99,6 +116,166 @@ function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, live
   )
 }
 
+function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liveUrl, repoUrl, originalUrl }) {
+  const compImgStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'top',
+    borderRadius: '6px',
+    border: '1px solid #171717'
+  };
+
+  const compLabelStyle = {
+    fontFamily: 'Inter, sans-serif',
+    fontSize: '13px',
+    color: '#171717',
+    textAlign: 'center',
+    margin: '12px 0 0',
+    fontWeight: 600
+  };
+
+  return (
+    <section style={{
+      padding: 'clamp(30px, 8vw, 60px) 40px',
+      maxWidth: '900px',
+      margin: '0 auto',
+      borderTop: '1px solid #e5e5e5'
+    }}>
+      <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '30px', color: '#171717', margin: '0 0 20px' }}>
+        {title}
+      </h2>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>The problem</p>
+        <p style={caseText}>{problem}</p>
+      </div>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>What I did</p>
+        <p style={caseText}>{whatIDid}</p>
+      </div>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseLabel}>What came of it</p>
+        <p style={caseText}>{outcome}</p>
+      </div>
+
+      <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', fontStyle: 'italic', color: '#171717', opacity: 0.7, margin: '0 0 28px' }}>
+        Next time: {nextTime}
+      </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', marginBottom: '32px' }}>
+        {/* Desktop Pair */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeOrigDesktop} alt="Original Desktop Template" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>W3Schools Template (original)</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeDesktop} alt="My Desktop Clone" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>My Build (cloned)</p>
+          </div>
+        </div>
+        
+        {/* Mobile Pair */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeOrigMobile} alt="Original Mobile Template" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>W3Schools Template (original)</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeMobile} alt="My Mobile Clone" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>My Build (cloned)</p>
+          </div>
+        </div>
+
+        {/* Grid Pair */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeOrigGrid} alt="Original Grid Template" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>W3Schools Template (original)</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flexGrow: 1, display: 'flex' }}>
+              <img src={resumeGrid} alt="My Grid Clone" style={compImgStyle} />
+            </div>
+            <p style={compLabelStyle}>My Build (cloned)</p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+        <a href={liveUrl} target="_blank" rel="noreferrer" style={linkStyle}>Live demo &rarr;</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer" style={linkStyle}>GitHub repo &rarr;</a>
+        <a href={originalUrl} target="_blank" rel="noreferrer" style={linkStyle}>Original Template &rarr;</a>
+      </div>
+    </section>
+  )
+}
+
+function CrmProjectCase() {
+  const crmImgStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'top',
+    borderRadius: '6px',
+    border: '1px solid #171717'
+  };
+
+  return (
+    <section style={{
+      padding: 'clamp(30px, 8vw, 60px) 40px',
+      maxWidth: '900px',
+      margin: '0 auto',
+      borderTop: '1px solid #e5e5e5'
+    }}>
+      <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '30px', color: '#171717', margin: '0 0 20px' }}>
+        SharkStack Internal CRM
+      </h2>
+
+      <div style={{ marginBottom: '24px' }}>
+        <p style={caseText}>I worked on a real CRM project at SharkStack, fixing responsiveness issues on an interface originally generated with Loveable for an internal tool. Because this is an internal project, the live link and repository are strictly confidential.</p>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '16px',
+        marginBottom: '24px'
+      }}>
+        <div style={{ display: 'flex' }}>
+          <img src={crmNewProjectDesktop} alt="CRM New Project Desktop" style={crmImgStyle} />
+        </div>
+        <div style={{ display: 'flex' }}>
+          <img src={crmNewUserDesktop} alt="CRM New User Desktop" style={crmImgStyle} />
+        </div>
+        <div style={{ display: 'flex' }}>
+          <img src={crmNewProjectMobile} alt="CRM New Project Mobile" style={crmImgStyle} />
+        </div>
+        <div style={{ display: 'flex' }}>
+          <img src={crmNewUserMobile} alt="CRM New User Mobile" style={crmImgStyle} />
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <span style={{ ...caseLabel, margin: 0, opacity: 0.7 }}>Internal / Confidential (No Public Links)</span>
+      </div>
+    </section>
+  )
+}
+
 const caseLabel = {
   fontFamily: 'Inter, sans-serif',
   fontSize: '13px',
@@ -172,17 +349,18 @@ function Work() {
         repoUrl="https://github.com/meerabc/Data-drive-cards-react.git"
       />
 
-      <ProjectCase
+      <ResumeComparisonCase
         title="Resume Clone"
         problem="This was one of my earliest internship projects, meant to build responsiveness and pixel-perfect design skills using plain HTML and CSS. The goal was to match an existing resume design as closely as possible, an exact clone, not just something similar."
         whatIDid="I built the whole thing myself with HTML and CSS, no AI involved. The hardest part was getting the responsiveness and spacing pixel-perfect, which took a lot of trial and error to match the original design exactly."
         outcome="It ended up looking like a genuine clone of the original design, and my mentor approved it."
         nextTime="add a subtle animation for how the layout transitions when it responds to different screen sizes."
-        images={[resumeDesktop, resumeMobile, resumeGrid]}
         liveUrl="https://resume-clone-liard.vercel.app/#portfolio"
         repoUrl="https://github.com/meerabc/Resume---Clone.git"
-        imageLayout="stackedLeft"
+        originalUrl="https://www.w3schools.com/howto/tryw3css_templates_bw_portfolio.htm"
       />
+
+      <CrmProjectCase />
 
       <section style={{
         padding: 'clamp(30px, 8vw, 60px) 40px',
