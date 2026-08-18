@@ -2,7 +2,7 @@ function Contact() {
   return (
     <div>
       <section style={{
-        padding: '100px 40px',
+        padding: 'clamp(50px, 12vw, 100px) 40px',
         maxWidth: '700px',
         margin: '0 auto',
         textAlign: 'center'

@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
 function Layout() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <header style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '20px 40px',
-        borderBottom: '1px solid #e5e5e5'
+        padding: '20px clamp(20px, 5vw, 40px)',
+        borderBottom: '1px solid #e5e5e5',
+        position: 'relative'
       }}>
-        <NavLink to="/" style={{
+        <NavLink to="/" onClick={() => setMenuOpen(false)} style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
@@ -28,17 +32,27 @@ function Layout() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '14px'
+            fontSize: '14px',
+            flexShrink: 0
           }}>MC</span>
           Meerab Chaudhary
         </NavLink>
 
-        <nav style={{ display: 'flex', gap: '28px' }}>
-          <NavLink to="/" end style={navLinkStyle}>Home</NavLink>
-          <NavLink to="/work" style={navLinkStyle}>Work</NavLink>
-          <NavLink to="/about" style={navLinkStyle}>About</NavLink>
-          <NavLink to="/contact" style={navLinkStyle}>Contact</NavLink>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <NavLink to="/" end onClick={() => setMenuOpen(false)} style={navLinkStyle}>Home</NavLink>
+          <NavLink to="/work" onClick={() => setMenuOpen(false)} style={navLinkStyle}>Work</NavLink>
+          <NavLink to="/about" onClick={() => setMenuOpen(false)} style={navLinkStyle}>About</NavLink>
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)} style={navLinkStyle}>Contact</NavLink>
         </nav>
+
+        <button
+          className="hamburger-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}
+        >
+          <span style={{ fontSize: '24px', color: '#171717' }}>{menuOpen ? '\u2715' : '\u2630'}</span>
+        </button>
       </header>
 
       <main style={{ flex: 1 }}>
@@ -46,7 +60,7 @@ function Layout() {
       </main>
 
       <footer style={{
-        padding: '24px 40px',
+        padding: '24px clamp(20px, 5vw, 40px)',
         borderTop: '1px solid #e5e5e5',
         fontFamily: 'Inter, sans-serif',
         fontSize: '14px',

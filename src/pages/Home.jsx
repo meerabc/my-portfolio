@@ -5,14 +5,14 @@ function Home() {
     <div>
       {/* Hero */}
       <section style={{
-        padding: '120px 40px 80px',
+        padding: 'clamp(60px, 15vw, 120px) 40px clamp(40px, 8vw, 80px)',
         maxWidth: '800px',
         margin: '0 auto',
         textAlign: 'center'
       }}>
         <h1 style={{
           fontFamily: 'Space Grotesk, sans-serif',
-          fontSize: '44px',
+          fontSize: 'clamp(28px, 6vw, 44px)',
           color: '#171717',
           margin: '0 0 20px',
           lineHeight: 1.2
@@ -32,7 +32,7 @@ function Home() {
 
       {/* Featured case preview (teaser only) */}
       <section style={{
-        padding: '60px 40px',
+        padding: 'clamp(30px, 8vw, 60px) 40px',
         maxWidth: '800px',
         margin: '0 auto',
         borderTop: '1px solid #e5e5e5'
@@ -78,7 +78,7 @@ function Home() {
 
       {/* CTA band */}
       <section style={{
-        padding: '60px 40px',
+        padding: 'clamp(30px, 8vw, 60px) 40px',
         textAlign: 'center',
         backgroundColor: '#0F766E'
       }}>

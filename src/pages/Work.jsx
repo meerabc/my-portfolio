@@ -13,7 +13,7 @@ import resumeGrid from '../assets/images/resume-clone-portfolio-grid.png'
 function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, liveUrl, repoUrl, imageLayout = 'default' }) {
   return (
     <section style={{
-      padding: '60px 40px',
+      padding: 'clamp(30px, 8vw, 60px) 40px',
       maxWidth: '900px',
       margin: '0 auto',
       borderTop: '1px solid #e5e5e5'
@@ -128,7 +128,7 @@ const linkStyle = {
 function Work() {
   return (
     <div>
-      <section style={{ padding: '80px 40px 20px', maxWidth: '900px', margin: '0 auto' }}>
+      <section style={{ padding: 'clamp(40px, 10vw, 80px) 40px clamp(10px, 3vw, 20px)', maxWidth: '900px', margin: '0 auto' }}>
         <h1 style={{
           fontFamily: 'Space Grotesk, sans-serif',
           fontSize: '36px',
@@ -185,7 +185,7 @@ function Work() {
       />
 
       <section style={{
-        padding: '60px 40px',
+        padding: 'clamp(30px, 8vw, 60px) 40px',
         textAlign: 'center',
         backgroundColor: '#0F766E',
         marginTop: '40px'

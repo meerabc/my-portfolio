@@ -6,13 +6,15 @@ function About() {
     <div>
       {/* Bio + photo */}
       <section style={{
-        padding: '80px 40px 60px',
+        padding: 'clamp(40px, 10vw, 80px) 40px clamp(30px, 8vw, 60px)',
         maxWidth: '900px',
         margin: '0 auto',
         display: 'flex',
         gap: '48px',
         alignItems: 'center',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        textAlign: 'center'
       }}>
         <img src={aboutPhoto} alt="Meerab Chaudhary" style={{
           width: '220px',
@@ -21,7 +23,7 @@ function About() {
           borderRadius: '12px',
           border: '1px solid #e5e5e5'
         }} />
-        <div style={{ flex: 1, minWidth: '280px' }}>
+        <div style={{ flex: 1, minWidth: '280px',  textAlign: 'left' }}>
           <h1 style={{
             fontFamily: 'Space Grotesk, sans-serif',
             fontSize: '32px',
@@ -44,7 +46,7 @@ function About() {
 
       {/* Background */}
       <section style={{
-        padding: '40px 40px 60px',
+        padding: 'clamp(20px, 5vw, 40px) 40px clamp(30px, 8vw, 60px)',
         maxWidth: '900px',
         margin: '0 auto',
         borderTop: '1px solid #e5e5e5'
@@ -53,7 +55,7 @@ function About() {
           fontFamily: 'Space Grotesk, sans-serif',
           fontSize: '22px',
           color: '#171717',
-          margin: '32px 0 20px'
+          margin: 'clamp(16px, 4vw, 32px) 0 20px'
         }}>
           Background
         </h2>
@@ -76,7 +78,7 @@ function About() {
 
       {/* CTA */}
       <section style={{
-        padding: '60px 40px',
+        padding: 'clamp(30px, 8vw, 60px) 40px',
         textAlign: 'center',
         backgroundColor: '#0F766E'
       }}>

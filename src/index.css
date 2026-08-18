@@ -11,3 +11,44 @@ body {
 a {
   color: inherit;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.hamburger-btn {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hamburger-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 10;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 16px 24px;
+    border-top: 1px solid #e5e5e5;
+  }
+}
