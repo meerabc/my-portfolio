@@ -1,0 +1,9 @@
+# Meerab Chaudhary - Portfolio
+> React developer focused on getting UI exactly right, pixel by pixel, responsive by default.
+
+## About
+Frontend developer with hands-on industry experience building responsive, user-focused web applications using React, JavaScript, HTML, and CSS.
+
+## Links
+- GitHub: https://github.com/meerabc
+- LinkedIn: https://linkedin.com/in/meerab-chaudhary

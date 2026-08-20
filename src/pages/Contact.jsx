@@ -28,6 +28,13 @@ function Contact() {
     }
   }
 
+  // Clear success/error message when user starts typing again
+  const handleInputChange = () => {
+    if (status === 'success' || status === 'error') {
+      setStatus('idle')
+    }
+  }
+
   return (
     <div>
       <section style={{
@@ -85,7 +92,7 @@ function Contact() {
             Or send a message directly
           </p>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} onChange={handleInputChange}>
             <input
               type="text"
               name="name"
