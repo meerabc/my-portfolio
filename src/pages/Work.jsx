@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ScrollReveal from '../components/ScrollReveal.jsx'
 
 // Reach Shop
 import reachShopHero from '../assets/images/reach-shop-hero.png'
@@ -29,7 +30,7 @@ import crmNewUserMobile from '../assets/images/crm-new-user-mobile.png'
 
 function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, liveUrl, repoUrl, imageLayout = 'default' }) {
   return (
-    <section style={{
+    <ScrollReveal as="section" style={{
       padding: 'clamp(30px, 8vw, 60px) 40px',
       maxWidth: '900px',
       margin: '0 auto',
@@ -78,18 +79,21 @@ function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, live
           gap: '16px',
           marginBottom: '24px'
         }}>
-          <img src={images[0]} alt={`${title} screenshot 1`} style={{
-            width: '100%', borderRadius: '6px', border: '1px solid #e5e5e5',
-            gridColumn: '1', gridRow: '1'
-          }} />
-          <img src={images[2]} alt={`${title} screenshot 3`} style={{
-            width: '100%', borderRadius: '6px', border: '1px solid #e5e5e5',
-            gridColumn: '1', gridRow: '2'
-          }} />
-          <img src={images[1]} alt={`${title} screenshot 2`} style={{
-            width: '100%', height: '100%', objectFit: 'cover', borderRadius: '6px', border: '1px solid #e5e5e5',
-            gridColumn: '2', gridRow: '1 / 3'
-          }} />
+          <div className="bracket-frame" style={{ gridColumn: '1', gridRow: '1', borderRadius: '6px' }}>
+            <img src={images[0]} alt={`${title} screenshot 1`} className="case-img" style={{
+              width: '100%', display: 'block', borderRadius: '6px', border: '1px solid #e5e5e5'
+            }} />
+          </div>
+          <div className="bracket-frame" style={{ gridColumn: '1', gridRow: '2', borderRadius: '6px' }}>
+            <img src={images[2]} alt={`${title} screenshot 3`} className="case-img" style={{
+              width: '100%', display: 'block', borderRadius: '6px', border: '1px solid #e5e5e5'
+            }} />
+          </div>
+          <div className="bracket-frame" style={{ gridColumn: '2', gridRow: '1 / 3', borderRadius: '6px', height: '100%' }}>
+            <img src={images[1]} alt={`${title} screenshot 2`} className="case-img" style={{
+              width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '6px', border: '1px solid #e5e5e5'
+            }} />
+          </div>
         </div>
       ) : (
         <div style={{
@@ -99,20 +103,23 @@ function ProjectCase({ title, problem, whatIDid, outcome, nextTime, images, live
           marginBottom: '24px'
         }}>
           {images.map((img, i) => (
-            <img key={i} src={img} alt={`${title} screenshot ${i + 1}`} style={{
-              width: '100%',
-              borderRadius: '6px',
-              border: '1px solid #e5e5e5'
-            }} />
+            <div key={i} className="bracket-frame" style={{ borderRadius: '6px' }}>
+              <img src={img} alt={`${title} screenshot ${i + 1}`} className="case-img" style={{
+                width: '100%',
+                display: 'block',
+                borderRadius: '6px',
+                border: '1px solid #e5e5e5'
+              }} />
+            </div>
           ))}
         </div>
       )}
 
       <div style={{ display: 'flex', gap: '20px' }}>
-        <a href={liveUrl} target="_blank" rel="noreferrer" style={linkStyle}>Live demo &rarr;</a>
-        <a href={repoUrl} target="_blank" rel="noreferrer" style={linkStyle}>GitHub repo &rarr;</a>
+        <a href={liveUrl} target="_blank" rel="noreferrer" className="underline-link" style={linkStyle}>Live demo &rarr;</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer" className="underline-link" style={linkStyle}>GitHub repo &rarr;</a>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 
@@ -136,7 +143,7 @@ function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liv
   };
 
   return (
-    <section style={{
+    <ScrollReveal as="section" style={{
       padding: 'clamp(30px, 8vw, 60px) 40px',
       maxWidth: '900px',
       margin: '0 auto',
@@ -169,14 +176,14 @@ function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liv
         {/* Desktop Pair */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeOrigDesktop} alt="Original Desktop Template" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeOrigDesktop} alt="Original Desktop Template" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>W3Schools Template (original)</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeDesktop} alt="My Desktop Clone" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeDesktop} alt="My Desktop Clone" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>My Build (cloned)</p>
           </div>
@@ -185,14 +192,14 @@ function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liv
         {/* Mobile Pair */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeOrigMobile} alt="Original Mobile Template" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeOrigMobile} alt="Original Mobile Template" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>W3Schools Template (original)</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeMobile} alt="My Mobile Clone" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeMobile} alt="My Mobile Clone" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>My Build (cloned)</p>
           </div>
@@ -201,14 +208,14 @@ function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liv
         {/* Grid Pair */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeOrigGrid} alt="Original Grid Template" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeOrigGrid} alt="Original Grid Template" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>W3Schools Template (original)</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ flexGrow: 1, display: 'flex' }}>
-              <img src={resumeGrid} alt="My Grid Clone" style={compImgStyle} />
+            <div className="bracket-frame" style={{ flexGrow: 1, display: 'flex', borderRadius: '6px' }}>
+              <img src={resumeGrid} alt="My Grid Clone" className="case-img" style={compImgStyle} />
             </div>
             <p style={compLabelStyle}>My Build (cloned)</p>
           </div>
@@ -216,11 +223,11 @@ function ResumeComparisonCase({ title, problem, whatIDid, outcome, nextTime, liv
       </div>
 
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        <a href={liveUrl} target="_blank" rel="noreferrer" style={linkStyle}>Live demo &rarr;</a>
-        <a href={repoUrl} target="_blank" rel="noreferrer" style={linkStyle}>GitHub repo &rarr;</a>
-        <a href={originalUrl} target="_blank" rel="noreferrer" style={linkStyle}>Original Template &rarr;</a>
+        <a href={liveUrl} target="_blank" rel="noreferrer" className="underline-link" style={linkStyle}>Live demo &rarr;</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer" className="underline-link" style={linkStyle}>GitHub repo &rarr;</a>
+        <a href={originalUrl} target="_blank" rel="noreferrer" className="underline-link" style={linkStyle}>Original Template &rarr;</a>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 
@@ -235,7 +242,7 @@ function CrmProjectCase() {
   };
 
   return (
-    <section style={{
+    <ScrollReveal as="section" style={{
       padding: 'clamp(30px, 8vw, 60px) 40px',
       maxWidth: '900px',
       margin: '0 auto',
@@ -255,24 +262,24 @@ function CrmProjectCase() {
         gap: '16px',
         marginBottom: '24px'
       }}>
-        <div style={{ display: 'flex' }}>
-          <img src={crmNewProjectDesktop} alt="CRM New Project Desktop" style={crmImgStyle} />
+        <div className="bracket-frame" style={{ display: 'flex', borderRadius: '6px' }}>
+          <img src={crmNewProjectDesktop} alt="CRM New Project Desktop" className="case-img" style={crmImgStyle} />
         </div>
-        <div style={{ display: 'flex' }}>
-          <img src={crmNewUserDesktop} alt="CRM New User Desktop" style={crmImgStyle} />
+        <div className="bracket-frame" style={{ display: 'flex', borderRadius: '6px' }}>
+          <img src={crmNewUserDesktop} alt="CRM New User Desktop" className="case-img" style={crmImgStyle} />
         </div>
-        <div style={{ display: 'flex' }}>
-          <img src={crmNewProjectMobile} alt="CRM New Project Mobile" style={crmImgStyle} />
+        <div className="bracket-frame" style={{ display: 'flex', borderRadius: '6px' }}>
+          <img src={crmNewProjectMobile} alt="CRM New Project Mobile" className="case-img" style={crmImgStyle} />
         </div>
-        <div style={{ display: 'flex' }}>
-          <img src={crmNewUserMobile} alt="CRM New User Mobile" style={crmImgStyle} />
+        <div className="bracket-frame" style={{ display: 'flex', borderRadius: '6px' }}>
+          <img src={crmNewUserMobile} alt="CRM New User Mobile" className="case-img" style={crmImgStyle} />
         </div>
       </div>
 
       <div style={{ display: 'flex', gap: '20px' }}>
         <span style={{ ...caseLabel, margin: 0, opacity: 0.7 }}>Internal / Confidential (No Public Links)</span>
       </div>
-    </section>
+    </ScrollReveal>
   )
 }
 
@@ -305,12 +312,15 @@ const linkStyle = {
 function Work() {
   return (
     <div>
-      <section style={{ padding: 'clamp(40px, 10vw, 80px) 40px clamp(10px, 3vw, 20px)', maxWidth: '900px', margin: '0 auto' }}>
-        <h1 style={{
+      <section style={{ position: 'relative', padding: 'clamp(40px, 10vw, 80px) 40px clamp(10px, 3vw, 20px)', maxWidth: '900px', margin: '0 auto', overflow: 'hidden' }}>
+        <div className="blueprint-bg" aria-hidden="true" />
+        <h1 className="reveal is-visible" style={{
           fontFamily: 'Space Grotesk, sans-serif',
           fontSize: '36px',
           color: '#171717',
-          margin: 0
+          margin: 0,
+          position: 'relative',
+          animation: 'fadeRiseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both'
         }}>
           Work
         </h1>
@@ -362,7 +372,7 @@ function Work() {
 
       <CrmProjectCase />
 
-      <section style={{
+      <ScrollReveal as="section" style={{
         padding: 'clamp(30px, 8vw, 60px) 40px',
         textAlign: 'center',
         backgroundColor: '#0F766E',
@@ -376,7 +386,7 @@ function Work() {
         }}>
           Like what you see?
         </p>
-        <Link to="/contact" style={{
+        <Link to="/contact" className="lift-btn" style={{
           display: 'inline-block',
           padding: '12px 28px',
           backgroundColor: '#FAFAFA',
@@ -389,7 +399,7 @@ function Work() {
         }}>
           Email me and let's talk
         </Link>
-      </section>
+      </ScrollReveal>
     </div>
   )
 }

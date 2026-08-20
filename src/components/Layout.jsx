@@ -12,7 +12,9 @@ function Layout() {
         justifyContent: 'space-between',
         padding: '20px clamp(20px, 5vw, 40px)',
         borderBottom: '1px solid #e5e5e5',
-        position: 'relative'
+        position: 'relative',
+        backgroundColor: '#FAFAFA',
+        zIndex: 20
       }}>
         <NavLink to="/" onClick={() => setMenuOpen(false)} style={{
           display: 'flex',
@@ -23,7 +25,7 @@ function Layout() {
           fontFamily: 'Space Grotesk, sans-serif',
           fontWeight: 600
         }}>
-          <span style={{
+          <span className="logo-badge" style={{
             width: '32px',
             height: '32px',
             borderRadius: '50%',
@@ -39,10 +41,10 @@ function Layout() {
         </NavLink>
 
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          <NavLink to="/" end onClick={() => setMenuOpen(false)} style={navLinkStyle}>Home</NavLink>
-          <NavLink to="/work" onClick={() => setMenuOpen(false)} style={navLinkStyle}>Work</NavLink>
-          <NavLink to="/about" onClick={() => setMenuOpen(false)} style={navLinkStyle}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setMenuOpen(false)} style={navLinkStyle}>Contact</NavLink>
+          <NavLink to="/" end onClick={() => setMenuOpen(false)} style={navLinkStyle} className="underline-link">Home</NavLink>
+          <NavLink to="/work" onClick={() => setMenuOpen(false)} style={navLinkStyle} className="underline-link">Work</NavLink>
+          <NavLink to="/about" onClick={() => setMenuOpen(false)} style={navLinkStyle} className="underline-link">About</NavLink>
+          <NavLink to="/contact" onClick={() => setMenuOpen(false)} style={navLinkStyle} className="underline-link">Contact</NavLink>
         </nav>
 
         <button
@@ -51,7 +53,13 @@ function Layout() {
           aria-label="Toggle menu"
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}
         >
-          <span style={{ fontSize: '24px', color: '#171717' }}>{menuOpen ? '\u2715' : '\u2630'}</span>
+          <span style={{
+            fontSize: '24px',
+            color: '#171717',
+            display: 'inline-block',
+            transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+            transform: menuOpen ? 'rotate(90deg)' : 'rotate(0deg)'
+          }}>{menuOpen ? '\u2715' : '\u2630'}</span>
         </button>
       </header>
 

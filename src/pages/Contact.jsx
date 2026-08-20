@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ScrollReveal from '../components/ScrollReveal.jsx'
 
 function Contact() {
   const [status, setStatus] = useState('idle')
@@ -43,17 +44,21 @@ function Contact() {
         margin: '0 auto',
         textAlign: 'center'
       }}>
-        <h1 style={{
+        <h1 className="reveal is-visible" style={{
           fontFamily: 'Space Grotesk, sans-serif',
           fontSize: '36px',
           color: '#171717',
-          margin: '0 0 40px'
+          margin: '0 0 40px',
+          animation: 'fadeRiseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both'
         }}>
           Let's talk
         </h1>
 
-        <div style={{ marginBottom: '48px' }}>
-          <a href="mailto:meerabc955@gmail.com" style={contactLink}>
+        <div className="reveal is-visible" style={{
+          marginBottom: '48px',
+          animation: 'fadeRiseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both'
+        }}>
+          <a href="mailto:meerabc955@gmail.com" className="underline-link" style={contactLink}>
             meerabc955@gmail.com
           </a>
           <p style={{
@@ -66,21 +71,22 @@ function Contact() {
           </p>
         </div>
 
-        <div style={{
+        <div className="reveal is-visible" style={{
           display: 'flex',
           gap: '28px',
           justifyContent: 'center',
-          marginBottom: '56px'
+          marginBottom: '56px',
+          animation: 'fadeRiseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both'
         }}>
-          <a href="https://linkedin.com/in/meerab-chaudhary" target="_blank" rel="noreferrer" style={secondaryLink}>
+          <a href="https://linkedin.com/in/meerab-chaudhary" target="_blank" rel="noreferrer" className="underline-link" style={secondaryLink}>
             LinkedIn
           </a>
-          <a href="https://github.com/meerabc" target="_blank" rel="noreferrer" style={secondaryLink}>
+          <a href="https://github.com/meerabc" target="_blank" rel="noreferrer" className="underline-link" style={secondaryLink}>
             GitHub
           </a>
         </div>
 
-        <div style={{ borderTop: '1px solid #e5e5e5', paddingTop: '48px', textAlign: 'left' }}>
+        <ScrollReveal style={{ borderTop: '1px solid #e5e5e5', paddingTop: '48px', textAlign: 'left' }}>
           <p style={{
             fontFamily: 'Inter, sans-serif',
             fontSize: '15px',
@@ -98,6 +104,7 @@ function Contact() {
               name="name"
               placeholder="Your name"
               required
+              className="animated-input"
               style={inputStyle}
             />
             <input
@@ -105,6 +112,7 @@ function Contact() {
               name="email"
               placeholder="Your email"
               required
+              className="animated-input"
               style={inputStyle}
             />
             <textarea
@@ -112,12 +120,14 @@ function Contact() {
               placeholder="Your message"
               required
               rows={5}
+              className="animated-input"
               style={{ ...inputStyle, resize: 'vertical', fontFamily: 'Inter, sans-serif' }}
             />
 
             <button
               type="submit"
               disabled={status === 'sending'}
+              className="lift-btn"
               style={{
                 width: '100%',
                 padding: '14px',
@@ -136,17 +146,17 @@ function Contact() {
             </button>
 
             {status === 'success' && (
-              <p style={{ color: '#0F766E', fontFamily: 'Inter, sans-serif', fontSize: '14px', marginTop: '16px', textAlign: 'center' }}>
+              <p style={{ color: '#0F766E', fontFamily: 'Inter, sans-serif', fontSize: '14px', marginTop: '16px', textAlign: 'center', animation: 'fadeRiseIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both' }}>
                 Message sent. I'll get back to you soon.
               </p>
             )}
             {status === 'error' && (
-              <p style={{ color: '#B91C1C', fontFamily: 'Inter, sans-serif', fontSize: '14px', marginTop: '16px', textAlign: 'center' }}>
+              <p style={{ color: '#B91C1C', fontFamily: 'Inter, sans-serif', fontSize: '14px', marginTop: '16px', textAlign: 'center', animation: 'fadeRiseIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both' }}>
                 Something went wrong, please email me directly instead.
               </p>
             )}
           </form>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   )
@@ -179,7 +189,8 @@ const inputStyle = {
   fontFamily: 'Inter, sans-serif',
   fontSize: '15px',
   color: '#171717',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+  transition: 'border-color 0.3s ease, box-shadow 0.3s ease'
 }
 
 export default Contact
